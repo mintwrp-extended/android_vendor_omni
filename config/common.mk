@@ -25,6 +25,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1 \
     persist.sys.disable_rescue=true
 
+# Tethering - allow without requiring a provisioning app
+# (for devices that check this)
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
+
 # enable ADB authentication if not on eng build
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES  += ro.adb.secure=1
@@ -34,8 +39,8 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/omni/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/omni/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/omni/prebuilt/bin/50-hosts.sh:system/addon.d/50-hosts.sh \
-    vendor/omni/prebuilt/bin/blacklist:system/addon.d/blacklist
+    vendor/omni/prebuilt/bin/blacklist:system/addon.d/blacklist \
+    vendor/omni/prebuilt/bin/clean_cache.sh:system/bin/clean_cache.sh
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
@@ -86,21 +91,25 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/common
 ifeq ($(ROM_BUILDTYPE),NIGHTLY)
     ifeq ($(WITH_DEXPREOPT),)
         WITH_DEXPREOPT := true
+        WITH_DEXPREOPT_PIC := true
     endif
 endif
 # and weeklies
 ifeq ($(ROM_BUILDTYPE),WEEKLY)
     ifeq ($(WITH_DEXPREOPT),)
         WITH_DEXPREOPT := true
+        WITH_DEXPREOPT_PIC := true
     endif
 endif
 # and security releases
 ifeq ($(ROM_BUILDTYPE),SECURITY_RELEASE)
     ifeq ($(WITH_DEXPREOPT),)
         WITH_DEXPREOPT := true
+        WITH_DEXPREOPT_PIC := true
     endif
 endif
 # but not homemades
 ifeq ($(ROM_BUILDTYPE),HOMEMADE)
-    WITH_DEXPREOPT := false
+    WITH_DEXPREOPT := true
+    WITH_DEXPREOPT_PIC := true
 endif

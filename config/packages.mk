@@ -13,7 +13,8 @@ PRODUCT_PACKAGES += \
     libcyanogen-dsp \
     Phonograph \
     Turbo \
-    MatLog
+    MatLog \
+    OmniChange
 
 # Additional tools
 PRODUCT_PACKAGES += \
@@ -29,6 +30,9 @@ PRODUCT_PACKAGES += \
     powertop \
     tune2fs \
     vim \
+    mkfs.ntfs \
+    mount.ntfs \
+    fsck.ntfs \
     mkshrc_vendor \
     toybox_vendor \
     sh_vendor
@@ -47,7 +51,16 @@ PRODUCT_BOOT_JARS += telephony-ext
 
 # Themes
 PRODUCT_PACKAGES += \
-    PixelTheme
+    PixelTheme \
+    SluttyPinkTheme \
+    DarknessMeisterTheme \
+    SmokedGreenTheme \
+    Bl4ckAndYell0Theme \
+    OmniTheme \
+    GboardOmniTheme
+
+PRODUCT_PACKAGES += \
+    Launcher3Dark
 
 # for fun
 PRODUCT_PACKAGES += EggGame
