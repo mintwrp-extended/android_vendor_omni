@@ -51,15 +51,36 @@ PRODUCT_BOOT_JARS += telephony-ext
 
 # Themes
 PRODUCT_PACKAGES += \
-    PixelTheme \
-    SluttyPinkTheme \
-    DarknessMeisterTheme \
-    SmokedGreenTheme \
-    Bl4ckAndYell0Theme \
-    OmniTheme \
-    FromHellTheme \
-    GboardOmniTheme \
-    ZeroZeroTheme
+    GboardOmniTheme
+
+PRODUCT_PACKAGES += \
+    NotificationsDark \
+    NotificationsLight \
+    NotificationsPrimary
+
+PRODUCT_PACKAGES += \
+    AccentSluttyPink \
+    AccentPixel \
+    AccentGoldenShower \
+    AccentDeepOrange \
+    AccentOmni \
+    AccentWhite \
+    AccentTeal \
+    AccentFromHell \
+    AccentBlueMonday \
+    AccentSmokingGreen \
+    AccentDeadRed \
+    AccentRottenOrange \
+    AccentDeepPurple
+
+PRODUCT_PACKAGES += \
+    PrimaryAlmostBlack \
+    PrimaryBlack \
+    PrimaryOmni \
+    PrimaryWhite \
+    PrimaryColdWhite \
+    PrimaryWarmWhite \
+    PrimaryDarkBlue
 
 # Textclassifiers
 PRODUCT_PACKAGES += \
@@ -79,4 +100,8 @@ PRODUCT_PACKAGES += \
     Launcher3Dark
 
 # for fun
-PRODUCT_PACKAGES += EggGame
+PRODUCT_PACKAGES += \
+    EggGame
+
+PRODUCT_PACKAGES += \
+    ExtraFonts

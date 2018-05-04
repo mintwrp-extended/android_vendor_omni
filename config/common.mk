@@ -54,6 +54,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
+#permissions
+PRODUCT_COPY_FILES += \
+    vendor/omni/prebuilt/etc/permissions/privapp-permissions-omni.xml:system/etc/permissions/privapp-permissions-omni.xml
+
 # custom omni sounds
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.ringtone=omni_ringtone1.ogg \
@@ -72,11 +76,16 @@ PRODUCT_COPY_FILES += \
     vendor/omni/prebuilt/sounds/omni_notification1.ogg:system/media/audio/notifications/omni_notification1.ogg \
     vendor/omni/prebuilt/sounds/omni_lowbattery1.ogg:system/media/audio/ui/omni_lowbattery1.ogg \
     vendor/omni/prebuilt/sounds/omni_lock_phone.ogg:system/media/audio/ui/omni_lock_phone.ogg \
-    vendor/omni/prebuilt/sounds/omni_unlock_phone.ogg:system/media/audio/ui/omni_unlock_phone.ogg
+    vendor/omni/prebuilt/sounds/omni_unlock_phone.ogg:system/media/audio/ui/omni_unlock_phone.ogg \
+    vendor/omni/prebuilt/sounds/omni_charge_start.ogg:system/media/audio/ui/omni_charge_start.ogg
 
 # mkshrc
 PRODUCT_COPY_FILES += \
     vendor/omni/prebuilt/etc/mkshrc:system/etc/mkshrc
+
+# whitelist packages for location providers not in system
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.services.whitelist.packagelist=com.google.android.gms
 
 # Additional packages
 -include vendor/omni/config/packages.mk
